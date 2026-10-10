@@ -1,2 +1,2 @@
 # music-streaming-platform
-ull-stack music streaming app using HTML, CSS, JavaScript, Node.js, Express, and MongoDB
+Full-stack music streaming app using HTML, CSS, JavaScript, Node.js, Express, and MongoDB
