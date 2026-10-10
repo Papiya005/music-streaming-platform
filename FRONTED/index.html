@@ -59,10 +59,21 @@
       </div>
     </div>
 
-    <div class="player-controls">
-      <button id="prev" aria-label="Previous song">|◀</button>
-      <button id="play" class="play-button" aria-label="Play">▶</button>
-      <button id="next" aria-label="Next song">▶|</button>
+   
+<div class="player-controls">
+  <button id="shuffle" title="Shuffle off" aria-label="Shuffle">🔀</button>
+  <button id="prev" aria-label="Previous song">|◀</button>
+  <button id="play" class="play-button" aria-label="Play">▶</button>
+  <button id="next" aria-label="Next song">▶|</button>
+  <button id="repeat" title="Repeat off" aria-label="Repeat">🔁</button>
+
+  <div class="progress-row">
+    <span id="current-time">0:00</span>
+    <input id="progress" type="range" min="0" max="100" value="0">
+    <span id="duration">0:00</span>
+  </div>
+</div>
+
       <div class="progress-row">
         <span id="current-time">0:00</span>
         <input id="progress" type="range" min="0" max="100" value="0">

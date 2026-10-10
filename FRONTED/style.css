@@ -251,3 +251,128 @@ input[type="range"] { accent-color: #c18aff; cursor: pointer; }
   .volume { grid-column: 2; grid-row: 1; }
   .volume input { width: 55px; }
 }
+
+/* Highlight the currently selected song */
+.song-card.playing {
+  border: 1px solid #9b6dff;
+  background: linear-gradient(
+    145deg,
+    rgba(155, 109, 255, 0.16),
+    rgba(155, 109, 255, 0.04)
+  );
+  box-shadow: 0 0 18px rgba(155, 109, 255, 0.12);
+}
+
+/* Give the active song a slightly brighter highlight */
+.song-card.is-playing {
+  border-color: #b99aff;
+  box-shadow: 0 0 22px rgba(155, 109, 255, 0.22);
+}
+
+/* Indicator layout */
+.now-playing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 12px 0;
+  min-height: 20px;
+}
+
+.now-playing-label {
+  color: #b99aff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Three-bar animated equalizer */
+.equalizer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 18px;
+}
+
+.equalizer-bar {
+  display: block;
+  width: 3px;
+  height: 5px;
+  border-radius: 3px;
+  background: #b99aff;
+  animation: equalizer-wave 0.65s ease-in-out infinite alternate;
+}
+
+/* Give each bar a different rhythm */
+.equalizer-bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.equalizer-bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Stop animation when the song is paused */
+.song-card:not(.is-playing) .equalizer-bar {
+  animation-play-state: paused;
+  height: 4px;
+}
+
+@keyframes equalizer-wave {
+  from {
+    height: 4px;
+  }
+
+  to {
+    height: 17px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .equalizer-bar {
+    animation: none;
+  }
+}
+
+/* Shuffle and repeat controls */
+#shuffle,
+#repeat {
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: transparent;
+  color: #c8bfdc;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+#shuffle:hover,
+#repeat:hover {
+  background: rgba(155, 109, 255, 0.12);
+}
+
+/* Highlight active controls */
+#shuffle.active,
+#repeat.active {
+  color: #c3a5ff;
+  background: rgba(155, 109, 255, 0.16);
+  border-color: rgba(155, 109, 255, 0.55);
+  box-shadow: 0 0 10px rgba(155, 109, 255, 0.12);
+}
+.favorite-button {
+  border: none;
+  background: transparent;
+  color: #c8bfdc;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.favorite-button:hover {
+  background: rgba(155, 109, 255, 0.12);
+}
+
+.favorite-button.is-favorite {
+  color: #ff5c91;
+}
